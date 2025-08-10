@@ -18,7 +18,7 @@ OUTPUT_FILE = os.path.join(DATA_PATH, "books_with_keywords.csv")
 BERT_MODEL = "all-MiniLM-L6-v2"
 NUM_KEYWORDS = 8
 DIVERSITY = 0.6
-MAX_ROWS = 500  # For quick testing — set None for full dataset
+MAX_ROWS = 2000  # For quick testing — set None for full dataset
 
 # --------------------------
 # Helpers

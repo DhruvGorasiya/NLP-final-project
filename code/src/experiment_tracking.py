@@ -47,59 +47,65 @@ class ExperimentTracker:
         print(f"[INFO] Starting experiment: {config.name}")
     
     def compute_metrics(self, 
-                       df: pd.DataFrame,
-                       similarity_matrix: np.ndarray,
-                       sample_size: int = 100) -> ExperimentMetrics:
+                   df: pd.DataFrame,
+                   similarity_matrix: np.ndarray,
+                   sample_size: int = 100) -> ExperimentMetrics:
         """Compute all evaluation metrics."""
         metrics = ExperimentMetrics()
         
-        # Processing time
-        metrics.processing_time = time.time() - self.start_time
-        
-        # Sample random books for evaluation
-        sample_indices = np.random.choice(len(df), min(sample_size, len(df)), replace=False)
-        
-        # Compute metrics for sampled books
-        for idx in sample_indices:
-            # Get top 10 recommendations for this book
-            sim_scores = similarity_matrix[idx]
-            top_indices = np.argsort(sim_scores)[-11:][::-1][1:]  # Exclude self
+        try:
+            # Processing time
+            metrics.processing_time = time.time() - self.start_time
             
-            # Genre overlap (if available)
-            if 'Genre' in df.columns:
-                book_genres = set(str(df.iloc[idx]['Genre']).split(','))
-                rec_genres = set()
-                rec_authors = set()
+            # Sample random books for evaluation
+            sample_indices = np.random.choice(len(df), min(sample_size, len(df)), replace=False)
+            valid_samples = 0
+            
+            # Compute metrics for sampled books
+            for idx in sample_indices:
+                try:
+                    # Get top recommendations
+                    sim_scores = similarity_matrix[idx]
+                    top_indices = np.argsort(sim_scores)[-11:][::-1][1:]  # Exclude self
+                    
+                    # Calculate accuracy based on keyword overlap
+                    if isinstance(df.iloc[idx]['keywords'], list):
+                        book_keywords = set(df.iloc[idx]['keywords'])
+                        if book_keywords:  # Only process if we have keywords
+                            rec_keywords = set()
+                            for rec_idx in top_indices[:5]:
+                                if isinstance(df.iloc[rec_idx]['keywords'], list):
+                                    rec_keywords.update(df.iloc[rec_idx]['keywords'])
+                            
+                            if len(book_keywords) > 0 and len(rec_keywords) > 0:
+                                # Top-5 accuracy is based on keyword overlap
+                                metrics.top_5_accuracy += len(book_keywords & rec_keywords) / len(book_keywords)
+                                valid_samples += 1
                 
-                for rec_idx in top_indices[:5]:  # Top 5
-                    rec_genres.update(str(df.iloc[rec_idx]['Genre']).split(','))
-                    rec_authors.add(df.iloc[rec_idx]['Book-Author'])
+                    # Recommendation diversity
+                    if len(top_indices) >= 5:
+                        rec_vectors = similarity_matrix[top_indices[:5]]
+                        if rec_vectors.shape[0] > 1:
+                            metrics.diversity_score += np.mean(pairwise_distances(rec_vectors))
                 
-                metrics.top_5_accuracy += len(book_genres & rec_genres) / len(book_genres)
-                metrics.unique_genres_ratio += len(rec_genres) / (5 * len(book_genres))
-                metrics.unique_authors_ratio += len(rec_authors) / 5
+                except Exception as e:
+                    print(f"[WARN] Error processing sample {idx}: {str(e)}")
+                    continue
             
-            # Keyword overlap
-            book_keywords = set(df.iloc[idx]['keywords'])
-            rec_keywords = set()
-            for rec_idx in top_indices[:5]:
-                rec_keywords.update(df.iloc[rec_idx]['keywords'])
-            metrics.keyword_overlap += len(book_keywords & rec_keywords) / len(book_keywords)
-            
-            # Recommendation diversity (average pairwise distance)
-            rec_vectors = similarity_matrix[top_indices[:5]]
-            diversity = np.mean(pairwise_distances(rec_vectors))
-            metrics.diversity_score += diversity
+            # Average metrics across valid samples
+            if valid_samples > 0:
+                metrics.top_5_accuracy /= valid_samples
+                metrics.diversity_score /= valid_samples
+                
+                # Overall similarity score
+                pos_sim = similarity_matrix[similarity_matrix > 0]
+                if len(pos_sim) > 0:
+                    metrics.mean_similarity = float(np.mean(pos_sim))
         
-        # Average metrics across samples
-        metrics.top_5_accuracy /= len(sample_indices)
-        metrics.keyword_overlap /= len(sample_indices)
-        metrics.unique_genres_ratio /= len(sample_indices)
-        metrics.unique_authors_ratio /= len(sample_indices)
-        metrics.diversity_score /= len(sample_indices)
-        
-        # Overall similarity score
-        metrics.mean_similarity = np.mean(similarity_matrix[similarity_matrix > 0])
+        except Exception as e:
+            print(f"[ERROR] Error computing metrics: {str(e)}")
+            import traceback
+            traceback.print_exc()
         
         return metrics
     

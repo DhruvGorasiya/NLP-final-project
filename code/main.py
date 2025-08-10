@@ -30,7 +30,7 @@ if __name__ == "__main__":
     # 4️⃣ Example Recommendation
     print("\n[STEP 4] Example Recommendation")
     books_df, sim_matrix = load_data()
-    title = "harry potter and the chamber of secrets"
+    title = "PLEADING GUILTY"
     recs = recommend_books(title, books_df, sim_matrix, top_n=5)
     print(recs)
 

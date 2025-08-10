@@ -1,0 +1,879 @@
+[
+  {
+    "timestamp": "2025-08-09T21:59:41.463418",
+    "config": {
+      "name": "baseline",
+      "bert_model": "all-MiniLM-L6-v2",
+      "num_keywords": 8,
+      "diversity": 0.6,
+      "tfidf_params": {},
+      "description": "Baseline configuration"
+    },
+    "metrics": {
+      "top_5_accuracy": 0.0,
+      "top_10_accuracy": 0.0,
+      "mean_similarity": 0.10135139241116577,
+      "keyword_overlap": 0.23875,
+      "unique_genres_ratio": 0.0,
+      "unique_authors_ratio": 0.0,
+      "diversity_score": 1.3636039876373198,
+      "processing_time": 668.5586049556732,
+      "memory_usage_mb": 0.0
+    },
+    "sample_recommendations": [
+      {
+        "book": "classical mythology",
+        "recommendations": [
+          {
+            "title": "a first book of shapes preschool dinosaur playhouse",
+            "author": "a j wood",
+            "similarity": 0.0
+          },
+          {
+            "title": "the notsoperfect picnic",
+            "author": "disney enterprises inc",
+            "similarity": 0.0
+          },
+          {
+            "title": "peters welcom tell a tale book",
+            "author": "maida silverman",
+            "similarity": 0.0
+          },
+          {
+            "title": "guerre de troie naura pas lieu",
+            "author": "jean giraudoux",
+            "similarity": 0.0
+          },
+          {
+            "title": "miro famous artists",
+            "author": "nicholas ross",
+            "similarity": 0.0
+          }
+        ]
+      },
+      {
+        "book": "clara callan",
+        "recommendations": [
+          {
+            "title": "der gesang des troubadours",
+            "author": "clara pierre",
+            "similarity": 0.2161391931545171
+          },
+          {
+            "title": "always daddys girl understanding your fathers impact on who you are",
+            "author": "h norman wright",
+            "similarity": 0.17123874057700797
+          },
+          {
+            "title": "the real mother goose",
+            "author": "blanche fisher wright",
+            "similarity": 0.16598786905111826
+          },
+          {
+            "title": "death of a river guide",
+            "author": "richard flanagan",
+            "similarity": 0.15281433072479525
+          },
+          {
+            "title": "a good oldfashioned future stories",
+            "author": "bruce sterling",
+            "similarity": 0.1441866874952733
+          }
+        ]
+      },
+      {
+        "book": "decision in normandy",
+        "recommendations": [
+          {
+            "title": "a first book of shapes preschool dinosaur playhouse",
+            "author": "a j wood",
+            "similarity": 0.0
+          },
+          {
+            "title": "the notsoperfect picnic",
+            "author": "disney enterprises inc",
+            "similarity": 0.0
+          },
+          {
+            "title": "peters welcom tell a tale book",
+            "author": "maida silverman",
+            "similarity": 0.0
+          },
+          {
+            "title": "guerre de troie naura pas lieu",
+            "author": "jean giraudoux",
+            "similarity": 0.0
+          },
+          {
+            "title": "miro famous artists",
+            "author": "nicholas ross",
+            "similarity": 0.0
+          }
+        ]
+      },
+      {
+        "book": "flu the story of the great influenza pandemic of 1918 and the search for the virus that caused it",
+        "recommendations": [
+          {
+            "title": "the souls code in search of character and calling",
+            "author": "james hillman",
+            "similarity": 0.24111294562457294
+          },
+          {
+            "title": "jedi search star wars the jedi academy trilogy vol 1",
+            "author": "kevin j anderson",
+            "similarity": 0.23919517176121072
+          },
+          {
+            "title": "mans search for meaning",
+            "author": "viktor e frankl",
+            "similarity": 0.20912174596760802
+          },
+          {
+            "title": "the secret of shambhala in search of the eleventh insight",
+            "author": "james redfield",
+            "similarity": 0.18573865773397846
+          },
+          {
+            "title": "group six people in search of a life",
+            "author": "paul solotaroff",
+            "similarity": 0.18424715603721345
+          }
+        ]
+      },
+      {
+        "book": "the mummies of urumchi",
+        "recommendations": [
+          {
+            "title": "a first book of shapes preschool dinosaur playhouse",
+            "author": "a j wood",
+            "similarity": 0.0
+          },
+          {
+            "title": "the notsoperfect picnic",
+            "author": "disney enterprises inc",
+            "similarity": 0.0
+          },
+          {
+            "title": "peters welcom tell a tale book",
+            "author": "maida silverman",
+            "similarity": 0.0
+          },
+          {
+            "title": "guerre de troie naura pas lieu",
+            "author": "jean giraudoux",
+            "similarity": 0.0
+          },
+          {
+            "title": "miro famous artists",
+            "author": "nicholas ross",
+            "similarity": 0.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-08-09T22:21:55.049587",
+    "config": {
+      "name": "high_keywords",
+      "bert_model": "all-MiniLM-L6-v2",
+      "num_keywords": 12,
+      "diversity": 0.6,
+      "tfidf_params": {},
+      "description": "More keywords per book"
+    },
+    "metrics": {
+      "top_5_accuracy": 0.0,
+      "top_10_accuracy": 0.0,
+      "mean_similarity": 0.0906393082334723,
+      "keyword_overlap": 0.14416666666666664,
+      "unique_genres_ratio": 0.0,
+      "unique_authors_ratio": 0.0,
+      "diversity_score": 0.9049925819141132,
+      "processing_time": 1333.5152971744537,
+      "memory_usage_mb": 0.0
+    },
+    "sample_recommendations": [
+      {
+        "book": "classical mythology",
+        "recommendations": [
+          {
+            "title": "a first book of shapes preschool dinosaur playhouse",
+            "author": "a j wood",
+            "similarity": 0.0
+          },
+          {
+            "title": "the notsoperfect picnic",
+            "author": "disney enterprises inc",
+            "similarity": 0.0
+          },
+          {
+            "title": "peters welcom tell a tale book",
+            "author": "maida silverman",
+            "similarity": 0.0
+          },
+          {
+            "title": "guerre de troie naura pas lieu",
+            "author": "jean giraudoux",
+            "similarity": 0.0
+          },
+          {
+            "title": "miro famous artists",
+            "author": "nicholas ross",
+            "similarity": 0.0
+          }
+        ]
+      },
+      {
+        "book": "clara callan",
+        "recommendations": [
+          {
+            "title": "a first book of shapes preschool dinosaur playhouse",
+            "author": "a j wood",
+            "similarity": 0.0
+          },
+          {
+            "title": "the notsoperfect picnic",
+            "author": "disney enterprises inc",
+            "similarity": 0.0
+          },
+          {
+            "title": "peters welcom tell a tale book",
+            "author": "maida silverman",
+            "similarity": 0.0
+          },
+          {
+            "title": "guerre de troie naura pas lieu",
+            "author": "jean giraudoux",
+            "similarity": 0.0
+          },
+          {
+            "title": "miro famous artists",
+            "author": "nicholas ross",
+            "similarity": 0.0
+          }
+        ]
+      },
+      {
+        "book": "decision in normandy",
+        "recommendations": [
+          {
+            "title": "a first book of shapes preschool dinosaur playhouse",
+            "author": "a j wood",
+            "similarity": 0.0
+          },
+          {
+            "title": "the notsoperfect picnic",
+            "author": "disney enterprises inc",
+            "similarity": 0.0
+          },
+          {
+            "title": "peters welcom tell a tale book",
+            "author": "maida silverman",
+            "similarity": 0.0
+          },
+          {
+            "title": "guerre de troie naura pas lieu",
+            "author": "jean giraudoux",
+            "similarity": 0.0
+          },
+          {
+            "title": "miro famous artists",
+            "author": "nicholas ross",
+            "similarity": 0.0
+          }
+        ]
+      },
+      {
+        "book": "flu the story of the great influenza pandemic of 1918 and the search for the virus that caused it",
+        "recommendations": [
+          {
+            "title": "jedi search star wars the jedi academy trilogy vol 1",
+            "author": "kevin j anderson",
+            "similarity": 0.1686403677654069
+          },
+          {
+            "title": "the man who loved only numbers the story of paul erdos and the search for mathematical truth",
+            "author": "paul hoffman",
+            "similarity": 0.16275457693375683
+          },
+          {
+            "title": "the secret of shambhala in search of the eleventh insight",
+            "author": "james redfield",
+            "similarity": 0.14069570283306776
+          },
+          {
+            "title": "the souls code in search of character and calling",
+            "author": "james hillman",
+            "similarity": 0.12961448210740617
+          },
+          {
+            "title": "of love and other demons penguin great books of the 20th century",
+            "author": "gabriel garcia marquez",
+            "similarity": 0.11754161091373556
+          }
+        ]
+      },
+      {
+        "book": "the mummies of urumchi",
+        "recommendations": [
+          {
+            "title": "a first book of shapes preschool dinosaur playhouse",
+            "author": "a j wood",
+            "similarity": 0.0
+          },
+          {
+            "title": "the notsoperfect picnic",
+            "author": "disney enterprises inc",
+            "similarity": 0.0
+          },
+          {
+            "title": "peters welcom tell a tale book",
+            "author": "maida silverman",
+            "similarity": 0.0
+          },
+          {
+            "title": "guerre de troie naura pas lieu",
+            "author": "jean giraudoux",
+            "similarity": 0.0
+          },
+          {
+            "title": "miro famous artists",
+            "author": "nicholas ross",
+            "similarity": 0.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-08-09T22:35:01.339086",
+    "config": {
+      "name": "high_diversity",
+      "bert_model": "all-MiniLM-L6-v2",
+      "num_keywords": 8,
+      "diversity": 0.8,
+      "tfidf_params": {},
+      "description": "Higher keyword diversity"
+    },
+    "metrics": {
+      "top_5_accuracy": 0.0,
+      "top_10_accuracy": 0.0,
+      "mean_similarity": 0.10135139241116577,
+      "keyword_overlap": 0.28,
+      "unique_genres_ratio": 0.0,
+      "unique_authors_ratio": 0.0,
+      "diversity_score": 1.3699350337118974,
+      "processing_time": 786.2107241153717,
+      "memory_usage_mb": 0.0
+    },
+    "sample_recommendations": [
+      {
+        "book": "classical mythology",
+        "recommendations": [
+          {
+            "title": "a first book of shapes preschool dinosaur playhouse",
+            "author": "a j wood",
+            "similarity": 0.0
+          },
+          {
+            "title": "the notsoperfect picnic",
+            "author": "disney enterprises inc",
+            "similarity": 0.0
+          },
+          {
+            "title": "peters welcom tell a tale book",
+            "author": "maida silverman",
+            "similarity": 0.0
+          },
+          {
+            "title": "guerre de troie naura pas lieu",
+            "author": "jean giraudoux",
+            "similarity": 0.0
+          },
+          {
+            "title": "miro famous artists",
+            "author": "nicholas ross",
+            "similarity": 0.0
+          }
+        ]
+      },
+      {
+        "book": "clara callan",
+        "recommendations": [
+          {
+            "title": "der gesang des troubadours",
+            "author": "clara pierre",
+            "similarity": 0.2161391931545171
+          },
+          {
+            "title": "always daddys girl understanding your fathers impact on who you are",
+            "author": "h norman wright",
+            "similarity": 0.17123874057700797
+          },
+          {
+            "title": "the real mother goose",
+            "author": "blanche fisher wright",
+            "similarity": 0.16598786905111826
+          },
+          {
+            "title": "death of a river guide",
+            "author": "richard flanagan",
+            "similarity": 0.15281433072479525
+          },
+          {
+            "title": "a good oldfashioned future stories",
+            "author": "bruce sterling",
+            "similarity": 0.1441866874952733
+          }
+        ]
+      },
+      {
+        "book": "decision in normandy",
+        "recommendations": [
+          {
+            "title": "a first book of shapes preschool dinosaur playhouse",
+            "author": "a j wood",
+            "similarity": 0.0
+          },
+          {
+            "title": "the notsoperfect picnic",
+            "author": "disney enterprises inc",
+            "similarity": 0.0
+          },
+          {
+            "title": "peters welcom tell a tale book",
+            "author": "maida silverman",
+            "similarity": 0.0
+          },
+          {
+            "title": "guerre de troie naura pas lieu",
+            "author": "jean giraudoux",
+            "similarity": 0.0
+          },
+          {
+            "title": "miro famous artists",
+            "author": "nicholas ross",
+            "similarity": 0.0
+          }
+        ]
+      },
+      {
+        "book": "flu the story of the great influenza pandemic of 1918 and the search for the virus that caused it",
+        "recommendations": [
+          {
+            "title": "the souls code in search of character and calling",
+            "author": "james hillman",
+            "similarity": 0.24111294562457294
+          },
+          {
+            "title": "jedi search star wars the jedi academy trilogy vol 1",
+            "author": "kevin j anderson",
+            "similarity": 0.23919517176121072
+          },
+          {
+            "title": "mans search for meaning",
+            "author": "viktor e frankl",
+            "similarity": 0.20912174596760802
+          },
+          {
+            "title": "the secret of shambhala in search of the eleventh insight",
+            "author": "james redfield",
+            "similarity": 0.18573865773397846
+          },
+          {
+            "title": "group six people in search of a life",
+            "author": "paul solotaroff",
+            "similarity": 0.18424715603721345
+          }
+        ]
+      },
+      {
+        "book": "the mummies of urumchi",
+        "recommendations": [
+          {
+            "title": "a first book of shapes preschool dinosaur playhouse",
+            "author": "a j wood",
+            "similarity": 0.0
+          },
+          {
+            "title": "the notsoperfect picnic",
+            "author": "disney enterprises inc",
+            "similarity": 0.0
+          },
+          {
+            "title": "peters welcom tell a tale book",
+            "author": "maida silverman",
+            "similarity": 0.0
+          },
+          {
+            "title": "guerre de troie naura pas lieu",
+            "author": "jean giraudoux",
+            "similarity": 0.0
+          },
+          {
+            "title": "miro famous artists",
+            "author": "nicholas ross",
+            "similarity": 0.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-08-09T22:47:33.657354",
+    "config": {
+      "name": "alternative_model",
+      "bert_model": "paraphrase-MiniLM-L3-v2",
+      "num_keywords": 8,
+      "diversity": 0.6,
+      "tfidf_params": {},
+      "description": "Alternative BERT model"
+    },
+    "metrics": {
+      "top_5_accuracy": 0.0,
+      "top_10_accuracy": 0.0,
+      "mean_similarity": 0.0892694598088902,
+      "keyword_overlap": 0.26125,
+      "unique_genres_ratio": 0.0,
+      "unique_authors_ratio": 0.0,
+      "diversity_score": 1.3605738235710916,
+      "processing_time": 752.2374269962311,
+      "memory_usage_mb": 0.0
+    },
+    "sample_recommendations": [
+      {
+        "book": "classical mythology",
+        "recommendations": [
+          {
+            "title": "a first book of shapes preschool dinosaur playhouse",
+            "author": "a j wood",
+            "similarity": 0.0
+          },
+          {
+            "title": "the notsoperfect picnic",
+            "author": "disney enterprises inc",
+            "similarity": 0.0
+          },
+          {
+            "title": "peters welcom tell a tale book",
+            "author": "maida silverman",
+            "similarity": 0.0
+          },
+          {
+            "title": "guerre de troie naura pas lieu",
+            "author": "jean giraudoux",
+            "similarity": 0.0
+          },
+          {
+            "title": "miro famous artists",
+            "author": "nicholas ross",
+            "similarity": 0.0
+          }
+        ]
+      },
+      {
+        "book": "clara callan",
+        "recommendations": [
+          {
+            "title": "der gesang des troubadours",
+            "author": "clara pierre",
+            "similarity": 0.21350291564345855
+          },
+          {
+            "title": "the prayer of jabez devotional",
+            "author": "bruce wilkinson",
+            "similarity": 0.18178504269310775
+          },
+          {
+            "title": "the real mother goose",
+            "author": "blanche fisher wright",
+            "similarity": 0.1773088243117796
+          },
+          {
+            "title": "holy fire a novel bantam spectra book",
+            "author": "bruce sterling",
+            "similarity": 0.1676932024558466
+          },
+          {
+            "title": "golf hall of shame12 copy prepak",
+            "author": "bruce nash",
+            "similarity": 0.16654316640422862
+          }
+        ]
+      },
+      {
+        "book": "decision in normandy",
+        "recommendations": [
+          {
+            "title": "a first book of shapes preschool dinosaur playhouse",
+            "author": "a j wood",
+            "similarity": 0.0
+          },
+          {
+            "title": "the notsoperfect picnic",
+            "author": "disney enterprises inc",
+            "similarity": 0.0
+          },
+          {
+            "title": "peters welcom tell a tale book",
+            "author": "maida silverman",
+            "similarity": 0.0
+          },
+          {
+            "title": "guerre de troie naura pas lieu",
+            "author": "jean giraudoux",
+            "similarity": 0.0
+          },
+          {
+            "title": "miro famous artists",
+            "author": "nicholas ross",
+            "similarity": 0.0
+          }
+        ]
+      },
+      {
+        "book": "flu the story of the great influenza pandemic of 1918 and the search for the virus that caused it",
+        "recommendations": [
+          {
+            "title": "the great petrowski a fable",
+            "author": "gina berriault",
+            "similarity": 0.20143603965440224
+          },
+          {
+            "title": "the man who loved only numbers the story of paul erdos and the search for mathematical truth",
+            "author": "paul hoffman",
+            "similarity": 0.126946625882999
+          },
+          {
+            "title": "mans search for meaning",
+            "author": "viktor e frankl",
+            "similarity": 0.11499775984544318
+          },
+          {
+            "title": "disneys pocahontas illustrated classic",
+            "author": "gina ingoglia",
+            "similarity": 0.11123864132516469
+          },
+          {
+            "title": "jedi search star wars the jedi academy trilogy vol 1",
+            "author": "kevin j anderson",
+            "similarity": 0.104549089949799
+          }
+        ]
+      },
+      {
+        "book": "the mummies of urumchi",
+        "recommendations": [
+          {
+            "title": "a first book of shapes preschool dinosaur playhouse",
+            "author": "a j wood",
+            "similarity": 0.0
+          },
+          {
+            "title": "the notsoperfect picnic",
+            "author": "disney enterprises inc",
+            "similarity": 0.0
+          },
+          {
+            "title": "peters welcom tell a tale book",
+            "author": "maida silverman",
+            "similarity": 0.0
+          },
+          {
+            "title": "guerre de troie naura pas lieu",
+            "author": "jean giraudoux",
+            "similarity": 0.0
+          },
+          {
+            "title": "miro famous artists",
+            "author": "nicholas ross",
+            "similarity": 0.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-08-09T23:00:40.701849",
+    "config": {
+      "name": "custom_tfidf",
+      "bert_model": "all-MiniLM-L6-v2",
+      "num_keywords": 8,
+      "diversity": 0.6,
+      "tfidf_params": {
+        "max_features": 1000,
+        "ngram_range": [
+          1,
+          2
+        ],
+        "min_df": 2
+      },
+      "description": "Custom TF-IDF parameters"
+    },
+    "metrics": {
+      "top_5_accuracy": 0.0,
+      "top_10_accuracy": 0.0,
+      "mean_similarity": 0.22236739717179027,
+      "keyword_overlap": 0.22375,
+      "unique_genres_ratio": 0.0,
+      "unique_authors_ratio": 0.0,
+      "diversity_score": 2.2962619353248312,
+      "processing_time": 786.9685590267181,
+      "memory_usage_mb": 0.0
+    },
+    "sample_recommendations": [
+      {
+        "book": "classical mythology",
+        "recommendations": [
+          {
+            "title": "a first book of shapes preschool dinosaur playhouse",
+            "author": "a j wood",
+            "similarity": 0.0
+          },
+          {
+            "title": "the notsoperfect picnic",
+            "author": "disney enterprises inc",
+            "similarity": 0.0
+          },
+          {
+            "title": "peters welcom tell a tale book",
+            "author": "maida silverman",
+            "similarity": 0.0
+          },
+          {
+            "title": "guerre de troie naura pas lieu",
+            "author": "jean giraudoux",
+            "similarity": 0.0
+          },
+          {
+            "title": "miro famous artists",
+            "author": "nicholas ross",
+            "similarity": 0.0
+          }
+        ]
+      },
+      {
+        "book": "clara callan",
+        "recommendations": [
+          {
+            "title": "nessie the loch ness monster",
+            "author": "richard brassey",
+            "similarity": 0.4874187844224739
+          },
+          {
+            "title": "lame deer seeker of visions",
+            "author": "richard erdoes",
+            "similarity": 0.4874187844224739
+          },
+          {
+            "title": "rogue warrior rogue warrior i paperback",
+            "author": "richard marcinko",
+            "similarity": 0.4297637753601605
+          },
+          {
+            "title": "gay ideas outing and other controversies",
+            "author": "richard d mohr",
+            "similarity": 0.41582382680273083
+          },
+          {
+            "title": "tantras forgotten realms avatar trilogy book 2",
+            "author": "richard awlinson",
+            "similarity": 0.4151386334590179
+          }
+        ]
+      },
+      {
+        "book": "decision in normandy",
+        "recommendations": [
+          {
+            "title": "a first book of shapes preschool dinosaur playhouse",
+            "author": "a j wood",
+            "similarity": 0.0
+          },
+          {
+            "title": "the notsoperfect picnic",
+            "author": "disney enterprises inc",
+            "similarity": 0.0
+          },
+          {
+            "title": "peters welcom tell a tale book",
+            "author": "maida silverman",
+            "similarity": 0.0
+          },
+          {
+            "title": "guerre de troie naura pas lieu",
+            "author": "jean giraudoux",
+            "similarity": 0.0
+          },
+          {
+            "title": "miro famous artists",
+            "author": "nicholas ross",
+            "similarity": 0.0
+          }
+        ]
+      },
+      {
+        "book": "flu the story of the great influenza pandemic of 1918 and the search for the virus that caused it",
+        "recommendations": [
+          {
+            "title": "the secret of shambhala in search of the eleventh insight",
+            "author": "james redfield",
+            "similarity": 0.6448321778378031
+          },
+          {
+            "title": "the souls code in search of character and calling",
+            "author": "james hillman",
+            "similarity": 0.6282163101487062
+          },
+          {
+            "title": "peace agitator story of a j muste",
+            "author": "hentoff",
+            "similarity": 0.5291227317758116
+          },
+          {
+            "title": "jedi search star wars the jedi academy trilogy vol 1",
+            "author": "kevin j anderson",
+            "similarity": 0.5205554456080176
+          },
+          {
+            "title": "the man who loved only numbers the story of paul erdos and the search for mathematical truth",
+            "author": "paul hoffman",
+            "similarity": 0.510677005979097
+          }
+        ]
+      },
+      {
+        "book": "the mummies of urumchi",
+        "recommendations": [
+          {
+            "title": "a first book of shapes preschool dinosaur playhouse",
+            "author": "a j wood",
+            "similarity": 0.0
+          },
+          {
+            "title": "the notsoperfect picnic",
+            "author": "disney enterprises inc",
+            "similarity": 0.0
+          },
+          {
+            "title": "peters welcom tell a tale book",
+            "author": "maida silverman",
+            "similarity": 0.0
+          },
+          {
+            "title": "guerre de troie naura pas lieu",
+            "author": "jean giraudoux",
+            "similarity": 0.0
+          },
+          {
+            "title": "miro famous artists",
+            "author": "nicholas ross",
+            "similarity": 0.0
+          }
+        ]
+      }
+    ]
+  }
+]

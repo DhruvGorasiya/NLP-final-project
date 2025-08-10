@@ -25,10 +25,10 @@ def remove_urls(text):
     return re.sub(r"https?://\S+|www\.\S+", "", str(text))
 
 def clean_text(text):
-    text = str(text).lower()
-    text = remove_urls(strip_html(text))
-    text = text.translate(str.maketrans("", "", string.punctuation))
-    return re.sub(r"\s+", " ", text).strip()
+    text = str(text).lower()                                    # Convert to lowercase
+    text = remove_urls(strip_html(text))                        # Remove URLs and HTML
+    text = text.translate(str.maketrans("", "", string.punctuation))  # Remove punctuation
+    return re.sub(r"\s+", " ", text).strip()                   # Remove extra spaces
 
 # --------------------------
 # Main Functions
@@ -41,12 +41,8 @@ def load_datasets():
 
 def clean_books(books_df):
     df = books_df.copy()
-    # Year filter
-    if "Year-Of-Publication" in df.columns:
-        # Convert to numeric, invalid values become NaN
-        df["Year-Of-Publication"] = pd.to_numeric(df["Year-Of-Publication"], errors='coerce')
-        # Filter valid years
-        df = df[(df["Year-Of-Publication"] >= 1800) & (df["Year-Of-Publication"] <= 2025)]
+    # Keep original title for display
+    df["Original-Title"] = df["Book-Title"]
     # Clean text fields
     for col in ["Book-Title", "Book-Author", "Publisher"]:
         if col in df.columns:

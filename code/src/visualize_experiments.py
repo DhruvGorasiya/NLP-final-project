@@ -5,9 +5,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from typing import Dict, List
-import plotly.express as px
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
 
 # Constants
 EXPERIMENTS_DIR = os.path.join("data", "experiments")
@@ -42,38 +39,26 @@ def create_metrics_comparison(results: List[Dict]):
     df = pd.DataFrame(metrics_data)
     
     # Create subplot with 4 metrics
-    fig = make_subplots(
-        rows=2, cols=2,
-        subplot_titles=('Top-5 Accuracy', 'Keyword Overlap', 
-                       'Diversity Score', 'Processing Time (s)')
-    )
-    
+    fig, axes = plt.subplots(2, 2, figsize=(15, 12))
     metrics = ['Top-5 Accuracy', 'Keyword Overlap', 'Diversity Score', 'Processing Time']
-    positions = [(1,1), (1,2), (2,1), (2,2)]
     
-    for metric, pos in zip(metrics, positions):
-        fig.add_trace(
-            go.Bar(
-                x=df['experiment'],
-                y=df[metric],
-                text=df[metric].round(3),
-                textposition='auto',
-                name=metric
-            ),
-            row=pos[0], col=pos[1]
-        )
+    for idx, (metric, ax) in enumerate(zip(metrics, axes.flat)):
+        sns.barplot(data=df, x='experiment', y=metric, ax=ax)
+        ax.set_title(metric)
+        
+        # Set x-ticks explicitly
+        ax.set_xticks(range(len(df['experiment'])))
+        ax.set_xticklabels(df['experiment'], rotation=45, ha='right')
+        
+        # Add value labels on top of bars
+        for i, v in enumerate(df[metric]):
+            ax.text(i, v, f'{v:.3f}', ha='center', va='bottom')
     
-    fig.update_layout(
-        height=800,
-        showlegend=False,
-        title_text="Experiment Metrics Comparison"
-    )
-    
-    # Save interactive HTML
-    fig.write_html(os.path.join(VISUALIZATIONS_DIR, 'metrics_comparison.html'))
-    
-    # Save static image for paper
-    fig.write_image(os.path.join(VISUALIZATIONS_DIR, 'metrics_comparison.png'))
+    plt.suptitle("Experiment Metrics Comparison", y=1.02, fontsize=14)
+    plt.tight_layout()
+    plt.savefig(os.path.join(VISUALIZATIONS_DIR, 'metrics_comparison.png'), 
+                bbox_inches='tight', dpi=300)
+    plt.close()
 
 def create_recommendation_heatmap(results: List[Dict]):
     """Create similarity heatmap for sample recommendations."""
@@ -82,12 +67,17 @@ def create_recommendation_heatmap(results: List[Dict]):
     
     # Create similarity matrix for visualization
     titles = [rec['book'] for rec in samples]
-    sim_matrix = np.zeros((len(titles), len(titles)))
+    n = len(titles)
+    sim_matrix = np.zeros((n, n))
     
+    # Fill diagonal with 1.0 (self-similarity)
+    np.fill_diagonal(sim_matrix, 1.0)
+    
+    # Fill similarity values
     for i, rec in enumerate(samples):
         for j, r in enumerate(rec['recommendations']):
-            sim_matrix[i][j+1] = r['similarity']
-            sim_matrix[j+1][i] = r['similarity']  # Make it symmetric
+            sim_matrix[i, j] = r['similarity']
+            sim_matrix[j, i] = r['similarity']  # Make it symmetric
     
     # Create heatmap
     plt.figure(figsize=(12, 8))
@@ -96,7 +86,8 @@ def create_recommendation_heatmap(results: List[Dict]):
     plt.title('Book Similarity Heatmap (Sample)')
     plt.xticks(rotation=45, ha='right')
     plt.tight_layout()
-    plt.savefig(os.path.join(VISUALIZATIONS_DIR, 'similarity_heatmap.png'))
+    plt.savefig(os.path.join(VISUALIZATIONS_DIR, 'similarity_heatmap.png'),
+                bbox_inches='tight', dpi=300)
     plt.close()
 
 def create_parameter_impact_plot(results: List[Dict]):
@@ -115,22 +106,37 @@ def create_parameter_impact_plot(results: List[Dict]):
     
     df = pd.DataFrame(param_data)
     
-    # Create bubble plot
-    fig = px.scatter(df, x='num_keywords', y='accuracy',
-                    size='processing_time', color='diversity',
-                    hover_name='experiment',
-                    labels={
-                        'num_keywords': 'Number of Keywords',
-                        'accuracy': 'Top-5 Accuracy',
-                        'diversity': 'Diversity Parameter'
-                    },
-                    title='Parameter Impact on Model Performance')
+    # Create scatter plot with size indicating processing time
+    plt.figure(figsize=(10, 6))
+    scatter = plt.scatter(df['num_keywords'], df['accuracy'], 
+                         s=df['processing_time']*100,  # Scale size for visibility
+                         c=df['diversity'], cmap='viridis',
+                         alpha=0.6)
     
-    # Save interactive HTML
-    fig.write_html(os.path.join(VISUALIZATIONS_DIR, 'parameter_impact.html'))
+    # Add labels for each point
+    for idx, row in df.iterrows():
+        plt.annotate(row['experiment'], 
+                    (row['num_keywords'], row['accuracy']),
+                    xytext=(5, 5), textcoords='offset points')
     
-    # Save static image for paper
-    fig.write_image(os.path.join(VISUALIZATIONS_DIR, 'parameter_impact.png'))
+    plt.colorbar(scatter, label='Diversity Parameter')
+    plt.xlabel('Number of Keywords')
+    plt.ylabel('Top-5 Accuracy')
+    plt.title('Parameter Impact on Model Performance')
+    
+    # Add legend for bubble size
+    legend_elements = [plt.scatter([], [], s=t*100, c='gray', alpha=0.3,
+                                 label=f'{t:.1f}s')
+                      for t in [min(df['processing_time']), 
+                              max(df['processing_time'])]]
+    plt.legend(handles=legend_elements, 
+              labels=['Min Processing Time', 'Max Processing Time'],
+              title='Bubble Size', loc='upper left')
+    
+    plt.tight_layout()
+    plt.savefig(os.path.join(VISUALIZATIONS_DIR, 'parameter_impact.png'),
+                bbox_inches='tight', dpi=300)
+    plt.close()
 
 def generate_all_visualizations():
     """Generate all visualizations for the experiments."""
