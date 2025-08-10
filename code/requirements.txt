@@ -5,3 +5,5 @@ keybert
 matplotlib
 seaborn
 nltk
+plotly
+kaleido  # For static image export with plotly

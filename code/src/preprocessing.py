@@ -43,6 +43,9 @@ def clean_books(books_df):
     df = books_df.copy()
     # Year filter
     if "Year-Of-Publication" in df.columns:
+        # Convert to numeric, invalid values become NaN
+        df["Year-Of-Publication"] = pd.to_numeric(df["Year-Of-Publication"], errors='coerce')
+        # Filter valid years
         df = df[(df["Year-Of-Publication"] >= 1800) & (df["Year-Of-Publication"] <= 2025)]
     # Clean text fields
     for col in ["Book-Title", "Book-Author", "Publisher"]:
