@@ -72,15 +72,33 @@ class ExperimentTracker:
                     if isinstance(df.iloc[idx]['keywords'], list):
                         book_keywords = set(df.iloc[idx]['keywords'])
                         if book_keywords:  # Only process if we have keywords
-                            rec_keywords = set()
+                            # Calculate individual recommendation accuracy
+                            top_5_overlaps = []
+                            top_10_overlaps = []
+                            
+                            # Check top 5 recommendations
                             for rec_idx in top_indices[:5]:
                                 if isinstance(df.iloc[rec_idx]['keywords'], list):
-                                    rec_keywords.update(df.iloc[rec_idx]['keywords'])
+                                    rec_keywords = set(df.iloc[rec_idx]['keywords'])
+                                    if rec_keywords:
+                                        overlap = len(book_keywords & rec_keywords) / len(book_keywords)
+                                        top_5_overlaps.append(overlap)
                             
-                            if len(book_keywords) > 0 and len(rec_keywords) > 0:
-                                # Top-5 accuracy is based on keyword overlap
-                                metrics.top_5_accuracy += len(book_keywords & rec_keywords) / len(book_keywords)
-                                valid_samples += 1
+                            # Check top 10 recommendations
+                            for rec_idx in top_indices[:10]:
+                                if isinstance(df.iloc[rec_idx]['keywords'], list):
+                                    rec_keywords = set(df.iloc[rec_idx]['keywords'])
+                                    if rec_keywords:
+                                        overlap = len(book_keywords & rec_keywords) / len(book_keywords)
+                                        top_10_overlaps.append(overlap)
+                            
+                            # Average the overlaps
+                            if top_5_overlaps:
+                                metrics.top_5_accuracy += np.mean(top_5_overlaps)
+                            if top_10_overlaps:
+                                metrics.top_10_accuracy += np.mean(top_10_overlaps)
+                            
+                            valid_samples += 1
                 
                     # Recommendation diversity
                     if len(top_indices) >= 5:
@@ -95,12 +113,28 @@ class ExperimentTracker:
             # Average metrics across valid samples
             if valid_samples > 0:
                 metrics.top_5_accuracy /= valid_samples
+                metrics.top_10_accuracy /= valid_samples
                 metrics.diversity_score /= valid_samples
                 
                 # Overall similarity score
                 pos_sim = similarity_matrix[similarity_matrix > 0]
                 if len(pos_sim) > 0:
                     metrics.mean_similarity = float(np.mean(pos_sim))
+                
+                # Calculate overall keyword overlap across all books
+                all_keywords = set()
+                all_rec_keywords = set()
+                for i in range(min(100, len(df))):  # Sample for efficiency
+                    if isinstance(df.iloc[i]['keywords'], list):
+                        all_keywords.update(df.iloc[i]['keywords'])
+                        sim_scores = similarity_matrix[i]
+                        top_indices = np.argsort(sim_scores)[-6:][::-1][1:][:5]
+                        for rec_idx in top_indices:
+                            if isinstance(df.iloc[rec_idx]['keywords'], list):
+                                all_rec_keywords.update(df.iloc[rec_idx]['keywords'])
+                
+                if all_keywords and all_rec_keywords:
+                    metrics.keyword_overlap = len(all_keywords & all_rec_keywords) / len(all_keywords)
         
         except Exception as e:
             print(f"[ERROR] Error computing metrics: {str(e)}")
@@ -151,6 +185,22 @@ EXPERIMENT_CONFIGS = [
         diversity=0.6,
         tfidf_params={},
         description="More keywords per book"
+    ),
+    ExperimentConfig(
+        name="very_high_keywords",
+        bert_model="all-MiniLM-L6-v2",
+        num_keywords=16,
+        diversity=0.6,
+        tfidf_params={},
+        description="Many keywords per book"
+    ),
+    ExperimentConfig(
+        name="extreme_keywords",
+        bert_model="all-MiniLM-L6-v2",
+        num_keywords=20,
+        diversity=0.6,
+        tfidf_params={},
+        description="Extreme number of keywords"
     ),
     ExperimentConfig(
         name="high_diversity",

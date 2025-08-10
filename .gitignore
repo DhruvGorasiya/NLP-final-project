@@ -1,0 +1,79 @@
+# Large model files
+code/models/*.pkl
+code/models/cosine_similarity.pkl
+code/models/tfidf_vectorizer.pkl
+
+# Large data files
+code/data/*.csv
+code/data/Books.csv
+code/data/Users.csv
+code/data/Ratings.csv
+code/data/cleaned_books.csv
+code/data/books_with_keywords*.csv
+
+# Keep only the original data files
+!code/data/Books.csv
+!code/data/Users.csv
+!code/data/Ratings.csv
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+virtual_env/
+venv/
+env/
+ENV/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp 
