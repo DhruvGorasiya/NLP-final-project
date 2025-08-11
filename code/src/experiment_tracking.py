@@ -80,12 +80,13 @@ def is_good_recommendation(source_book, recommended_book):
     
     return score >= 0.25  # Lowered overall threshold from 0.3 to 0.25
 
-def compute_metrics_with_cv(df: pd.DataFrame, similarity_matrix: np.ndarray, n_folds: int = 5) -> ExperimentMetrics:
-    """Compute metrics using k-folds cross validation."""
+def compute_metrics_with_cv(df: pd.DataFrame, similarity_matrix: np.ndarray, n_folds: int = 5) -> tuple[ExperimentMetrics, List[Dict]]:
+    """Compute metrics using k-folds cross validation and return fold-wise metrics."""
     metrics = ExperimentMetrics()
     kf = KFold(n_splits=n_folds, shuffle=True, random_state=42)
     
     fold_accuracies = []
+    fold_metrics = []
     
     for fold, (train_idx, test_idx) in enumerate(kf.split(df)):
         fold_accuracy = 0
@@ -113,19 +114,28 @@ def compute_metrics_with_cv(df: pd.DataFrame, similarity_matrix: np.ndarray, n_f
                 continue
         
         if valid_test_samples > 0:
-            fold_accuracies.append(fold_accuracy / valid_test_samples)
+            fold_accuracy_normalized = fold_accuracy / valid_test_samples
+            fold_accuracies.append(fold_accuracy_normalized)
+            
+            # Store fold-wise metrics
+            fold_metrics.append({
+                'fold_number': fold + 1,
+                'top_5_accuracy': fold_accuracy_normalized,
+                'valid_samples': valid_test_samples
+            })
     
     # Average across folds
     if fold_accuracies:
         metrics.top_5_accuracy = np.mean(fold_accuracies)
         metrics.top_10_accuracy = metrics.top_5_accuracy * 0.8  # Estimate
     
-    return metrics
+    return metrics, fold_metrics
 
 class ExperimentTracker:
     def __init__(self):
         self.start_time = None
         self.results_file = os.path.join(EXPERIMENTS_DIR, "experiment_results.json")
+        self.fold_metrics = None
     
     def start_experiment(self, config: ExperimentConfig):
         """Start timing a new experiment."""
@@ -141,7 +151,8 @@ class ExperimentTracker:
         metrics.processing_time = time.time() - self.start_time
         
         # Use cross validation instead of random sampling
-        metrics = compute_metrics_with_cv(df, similarity_matrix, n_folds=5)
+        metrics, fold_metrics = compute_metrics_with_cv(df, similarity_matrix, n_folds=5)
+        self.fold_metrics = fold_metrics
         
         return metrics
     
@@ -151,7 +162,8 @@ class ExperimentTracker:
             "timestamp": datetime.now().isoformat(),
             "config": asdict(self.current_config),
             "metrics": asdict(metrics),
-            "sample_recommendations": sample_recommendations
+            "sample_recommendations": sample_recommendations,
+            "fold_metrics": self.fold_metrics if self.fold_metrics else []
         }
         
         # Load existing results

@@ -35,7 +35,7 @@ def clean_text(text):
 # --------------------------
 # Main Functions
 # --------------------------
-def load_datasets(max_rows=10000):
+def load_datasets(max_rows=100):
     """Load datasets with option to limit number of rows."""
     books = pd.read_csv(BOOKS_FILE, encoding="latin-1")
     users = pd.read_csv(USERS_FILE, encoding="latin-1")
@@ -44,11 +44,24 @@ def load_datasets(max_rows=10000):
     if max_rows:
         print(f"[INFO] Limiting dataset to {max_rows} rows")
         books = books.head(max_rows)
-        # Get only the users and ratings related to these books
+        
+        # Get only the ratings related to these books
         valid_isbns = books['ISBN'].tolist()
         ratings = ratings[ratings['ISBN'].isin(valid_isbns)]
+        
+        # Limit ratings to prevent explosion
+        if len(ratings) > max_rows * 10:  # Max 10 ratings per book
+            ratings = ratings.head(max_rows * 10)
+            print(f"[INFO] Limited ratings to {len(ratings)} to prevent memory explosion")
+        
+        # Get only the users related to these ratings
         valid_users = ratings['User-ID'].unique()
         users = users[users['User-ID'].isin(valid_users)]
+        
+        # Limit users if too many
+        if len(users) > max_rows * 2:  # Max 2 users per book
+            users = users.head(max_rows * 2)
+            print(f"[INFO] Limited users to {len(users)} to prevent memory explosion")
     
     print(f"[INFO] Dataset sizes:")
     print(f"Books: {len(books)}")

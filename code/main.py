@@ -31,7 +31,7 @@ os.makedirs(MODELS_PATH, exist_ok=True)
 
 
 
-def run_preprocessing_pipeline(max_rows=None):
+def run_preprocessing_pipeline(max_rows=100):
     """Run the complete data preprocessing pipeline."""
     print("\n[STEP 1] Loading and preprocessing datasets...")
     
@@ -66,7 +66,7 @@ def run_model_pipeline():
 
 def run_example_recommendations():
     """Generate example recommendations using different methods."""
-    print("\n[STEP 4] Generating example recommendations...")
+    print("\n[STEP 4] Generating recommendations...")
     
     # Load resources
     books_df, users_df, ratings_matrix, sim_matrix = load_resources()
@@ -222,8 +222,9 @@ def run_experiments():
 # Update the main execution to include experiments
 if __name__ == "__main__":
     try:
-        # Run complete pipeline with all data
-        books_clean, users_clean, explicit_matrix = run_preprocessing_pipeline(max_rows=None)
+        # Run complete pipeline with limited data for testing
+        # Change max_rows=None to process all data, or use a small number like 100 for testing
+        books_clean, users_clean, explicit_matrix = run_preprocessing_pipeline(max_rows=20000)
         run_model_pipeline()
         run_experiments()  # Add this line
         run_example_recommendations()
