@@ -1,0 +1,879 @@
+[
+  {
+    "timestamp": "2025-08-11T10:41:46.500577",
+    "config": {
+      "name": "baseline",
+      "bert_model": "all-MiniLM-L6-v2",
+      "num_keywords": 8,
+      "diversity": 0.6,
+      "tfidf_params": {},
+      "description": "Baseline configuration"
+    },
+    "metrics": {
+      "top_5_accuracy": 0.518,
+      "top_10_accuracy": 0.41440000000000005,
+      "mean_similarity": 0.0,
+      "keyword_overlap": 0.0,
+      "unique_genres_ratio": 0.0,
+      "unique_authors_ratio": 0.0,
+      "diversity_score": 0.0,
+      "processing_time": 0.0,
+      "memory_usage_mb": 0.0
+    },
+    "sample_recommendations": [
+      {
+        "book": "classical mythology",
+        "recommendations": [
+          {
+            "title": "read this and tell me what it says stories bard book",
+            "author": "a manette ansay",
+            "similarity": 0.0
+          },
+          {
+            "title": "beloved penguin great books of the 20th century",
+            "author": "toni morrison",
+            "similarity": 0.0
+          },
+          {
+            "title": "the exploits of the incomparable mulla nasrudin the subtleties of the inimitable mulla nasrudin",
+            "author": "idries shah",
+            "similarity": 0.0
+          },
+          {
+            "title": "around the world in eighty days tor classics",
+            "author": "jules verne",
+            "similarity": 0.0
+          },
+          {
+            "title": "chasing redbird",
+            "author": "sharon creech",
+            "similarity": 0.0
+          }
+        ]
+      },
+      {
+        "book": "clara callan",
+        "recommendations": [
+          {
+            "title": "amsterdam amsterdam and the hague art in focus",
+            "author": "christopher wright",
+            "similarity": 0.16816689049603778
+          },
+          {
+            "title": "always daddys girl understanding your fathers impact on who you are",
+            "author": "h norman wright",
+            "similarity": 0.1660563781887946
+          },
+          {
+            "title": "the real mother goose",
+            "author": "blanche fisher wright",
+            "similarity": 0.16452039233713953
+          },
+          {
+            "title": "jennifer murdleys toad magic shop books",
+            "author": "bruce coville",
+            "similarity": 0.1505534344722686
+          },
+          {
+            "title": "my teacher is an alien my teacher is an alien",
+            "author": "bruce coville",
+            "similarity": 0.14745072447022056
+          }
+        ]
+      },
+      {
+        "book": "flu the story of the great influenza pandemic of 1918 and the search for the virus that caused it",
+        "recommendations": [
+          {
+            "title": "jedi search star wars the jedi academy trilogy vol 1",
+            "author": "kevin j anderson",
+            "similarity": 0.22883014671844643
+          },
+          {
+            "title": "the souls code in search of character and calling",
+            "author": "james hillman",
+            "similarity": 0.22739195109466753
+          },
+          {
+            "title": "son of a preacher man my search for grace in the shadows",
+            "author": "jay bakker",
+            "similarity": 0.1910873387510772
+          },
+          {
+            "title": "my goodness a cynics shortlived search for sainthood",
+            "author": "joe queenan",
+            "similarity": 0.1855619116637071
+          },
+          {
+            "title": "the secret of shambhala in search of the eleventh insight",
+            "author": "james redfield",
+            "similarity": 0.17995935193156642
+          }
+        ]
+      },
+      {
+        "book": "the mummies of urumchi",
+        "recommendations": [
+          {
+            "title": "read this and tell me what it says stories bard book",
+            "author": "a manette ansay",
+            "similarity": 0.0
+          },
+          {
+            "title": "beloved penguin great books of the 20th century",
+            "author": "toni morrison",
+            "similarity": 0.0
+          },
+          {
+            "title": "the exploits of the incomparable mulla nasrudin the subtleties of the inimitable mulla nasrudin",
+            "author": "idries shah",
+            "similarity": 0.0
+          },
+          {
+            "title": "around the world in eighty days tor classics",
+            "author": "jules verne",
+            "similarity": 0.0
+          },
+          {
+            "title": "chasing redbird",
+            "author": "sharon creech",
+            "similarity": 0.0
+          }
+        ]
+      },
+      {
+        "book": "the kitchen gods wife",
+        "recommendations": [
+          {
+            "title": "the kitchen gods wife vintage contemporaries",
+            "author": "amy tan",
+            "similarity": 0.8486539998918488
+          },
+          {
+            "title": "the joy luck club",
+            "author": "amy tan",
+            "similarity": 0.550054486495648
+          },
+          {
+            "title": "amy and isabelle a novel",
+            "author": "elizabeth strout",
+            "similarity": 0.23544009475644576
+          },
+          {
+            "title": "the pilots wife a novel",
+            "author": "anita shreve",
+            "similarity": 0.22540996005790212
+          },
+          {
+            "title": "gossip times three",
+            "author": "amy goldman koss",
+            "similarity": 0.21844447802841618
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-08-11T11:02:46.142108",
+    "config": {
+      "name": "high_keywords",
+      "bert_model": "all-MiniLM-L6-v2",
+      "num_keywords": 12,
+      "diversity": 0.6,
+      "tfidf_params": {},
+      "description": "More keywords per book"
+    },
+    "metrics": {
+      "top_5_accuracy": 0.11400000000000002,
+      "top_10_accuracy": 0.09120000000000002,
+      "mean_similarity": 0.0,
+      "keyword_overlap": 0.0,
+      "unique_genres_ratio": 0.0,
+      "unique_authors_ratio": 0.0,
+      "diversity_score": 0.0,
+      "processing_time": 0.0,
+      "memory_usage_mb": 0.0
+    },
+    "sample_recommendations": [
+      {
+        "book": "classical mythology",
+        "recommendations": [
+          {
+            "title": "read this and tell me what it says stories bard book",
+            "author": "a manette ansay",
+            "similarity": 0.0
+          },
+          {
+            "title": "beloved penguin great books of the 20th century",
+            "author": "toni morrison",
+            "similarity": 0.0
+          },
+          {
+            "title": "the exploits of the incomparable mulla nasrudin the subtleties of the inimitable mulla nasrudin",
+            "author": "idries shah",
+            "similarity": 0.0
+          },
+          {
+            "title": "around the world in eighty days tor classics",
+            "author": "jules verne",
+            "similarity": 0.0
+          },
+          {
+            "title": "chasing redbird",
+            "author": "sharon creech",
+            "similarity": 0.0
+          }
+        ]
+      },
+      {
+        "book": "clara callan",
+        "recommendations": [
+          {
+            "title": "read this and tell me what it says stories bard book",
+            "author": "a manette ansay",
+            "similarity": 0.0
+          },
+          {
+            "title": "beloved penguin great books of the 20th century",
+            "author": "toni morrison",
+            "similarity": 0.0
+          },
+          {
+            "title": "the exploits of the incomparable mulla nasrudin the subtleties of the inimitable mulla nasrudin",
+            "author": "idries shah",
+            "similarity": 0.0
+          },
+          {
+            "title": "around the world in eighty days tor classics",
+            "author": "jules verne",
+            "similarity": 0.0
+          },
+          {
+            "title": "chasing redbird",
+            "author": "sharon creech",
+            "similarity": 0.0
+          }
+        ]
+      },
+      {
+        "book": "flu the story of the great influenza pandemic of 1918 and the search for the virus that caused it",
+        "recommendations": [
+          {
+            "title": "charlie and the great glass elevator puffin story books",
+            "author": "roald dahl",
+            "similarity": 0.1498467044967598
+          },
+          {
+            "title": "jedi search star wars the jedi academy trilogy vol 1",
+            "author": "kevin j anderson",
+            "similarity": 0.14790784764526446
+          },
+          {
+            "title": "the man who loved only numbers the story of paul erdos and the search for mathematical truth",
+            "author": "paul hoffman",
+            "similarity": 0.14317325561719102
+          },
+          {
+            "title": "son of a preacher man my search for grace in the shadows",
+            "author": "jay bakker",
+            "similarity": 0.12908609214662511
+          },
+          {
+            "title": "the secret of shambhala in search of the eleventh insight",
+            "author": "james redfield",
+            "similarity": 0.12067673360815348
+          }
+        ]
+      },
+      {
+        "book": "the mummies of urumchi",
+        "recommendations": [
+          {
+            "title": "read this and tell me what it says stories bard book",
+            "author": "a manette ansay",
+            "similarity": 0.0
+          },
+          {
+            "title": "beloved penguin great books of the 20th century",
+            "author": "toni morrison",
+            "similarity": 0.0
+          },
+          {
+            "title": "the exploits of the incomparable mulla nasrudin the subtleties of the inimitable mulla nasrudin",
+            "author": "idries shah",
+            "similarity": 0.0
+          },
+          {
+            "title": "around the world in eighty days tor classics",
+            "author": "jules verne",
+            "similarity": 0.0
+          },
+          {
+            "title": "chasing redbird",
+            "author": "sharon creech",
+            "similarity": 0.0
+          }
+        ]
+      },
+      {
+        "book": "the kitchen gods wife",
+        "recommendations": [
+          {
+            "title": "read this and tell me what it says stories bard book",
+            "author": "a manette ansay",
+            "similarity": 0.0
+          },
+          {
+            "title": "beloved penguin great books of the 20th century",
+            "author": "toni morrison",
+            "similarity": 0.0
+          },
+          {
+            "title": "the exploits of the incomparable mulla nasrudin the subtleties of the inimitable mulla nasrudin",
+            "author": "idries shah",
+            "similarity": 0.0
+          },
+          {
+            "title": "around the world in eighty days tor classics",
+            "author": "jules verne",
+            "similarity": 0.0
+          },
+          {
+            "title": "chasing redbird",
+            "author": "sharon creech",
+            "similarity": 0.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-08-11T11:15:59.875409",
+    "config": {
+      "name": "high_diversity",
+      "bert_model": "all-MiniLM-L6-v2",
+      "num_keywords": 8,
+      "diversity": 0.8,
+      "tfidf_params": {},
+      "description": "Higher keyword diversity"
+    },
+    "metrics": {
+      "top_5_accuracy": 0.518,
+      "top_10_accuracy": 0.41440000000000005,
+      "mean_similarity": 0.0,
+      "keyword_overlap": 0.0,
+      "unique_genres_ratio": 0.0,
+      "unique_authors_ratio": 0.0,
+      "diversity_score": 0.0,
+      "processing_time": 0.0,
+      "memory_usage_mb": 0.0
+    },
+    "sample_recommendations": [
+      {
+        "book": "classical mythology",
+        "recommendations": [
+          {
+            "title": "read this and tell me what it says stories bard book",
+            "author": "a manette ansay",
+            "similarity": 0.0
+          },
+          {
+            "title": "beloved penguin great books of the 20th century",
+            "author": "toni morrison",
+            "similarity": 0.0
+          },
+          {
+            "title": "the exploits of the incomparable mulla nasrudin the subtleties of the inimitable mulla nasrudin",
+            "author": "idries shah",
+            "similarity": 0.0
+          },
+          {
+            "title": "around the world in eighty days tor classics",
+            "author": "jules verne",
+            "similarity": 0.0
+          },
+          {
+            "title": "chasing redbird",
+            "author": "sharon creech",
+            "similarity": 0.0
+          }
+        ]
+      },
+      {
+        "book": "clara callan",
+        "recommendations": [
+          {
+            "title": "amsterdam amsterdam and the hague art in focus",
+            "author": "christopher wright",
+            "similarity": 0.16816689049603778
+          },
+          {
+            "title": "always daddys girl understanding your fathers impact on who you are",
+            "author": "h norman wright",
+            "similarity": 0.1660563781887946
+          },
+          {
+            "title": "the real mother goose",
+            "author": "blanche fisher wright",
+            "similarity": 0.16452039233713953
+          },
+          {
+            "title": "jennifer murdleys toad magic shop books",
+            "author": "bruce coville",
+            "similarity": 0.1505534344722686
+          },
+          {
+            "title": "my teacher is an alien my teacher is an alien",
+            "author": "bruce coville",
+            "similarity": 0.14745072447022056
+          }
+        ]
+      },
+      {
+        "book": "flu the story of the great influenza pandemic of 1918 and the search for the virus that caused it",
+        "recommendations": [
+          {
+            "title": "jedi search star wars the jedi academy trilogy vol 1",
+            "author": "kevin j anderson",
+            "similarity": 0.22883014671844643
+          },
+          {
+            "title": "the souls code in search of character and calling",
+            "author": "james hillman",
+            "similarity": 0.22739195109466753
+          },
+          {
+            "title": "son of a preacher man my search for grace in the shadows",
+            "author": "jay bakker",
+            "similarity": 0.1910873387510772
+          },
+          {
+            "title": "my goodness a cynics shortlived search for sainthood",
+            "author": "joe queenan",
+            "similarity": 0.1855619116637071
+          },
+          {
+            "title": "the secret of shambhala in search of the eleventh insight",
+            "author": "james redfield",
+            "similarity": 0.17995935193156642
+          }
+        ]
+      },
+      {
+        "book": "the mummies of urumchi",
+        "recommendations": [
+          {
+            "title": "read this and tell me what it says stories bard book",
+            "author": "a manette ansay",
+            "similarity": 0.0
+          },
+          {
+            "title": "beloved penguin great books of the 20th century",
+            "author": "toni morrison",
+            "similarity": 0.0
+          },
+          {
+            "title": "the exploits of the incomparable mulla nasrudin the subtleties of the inimitable mulla nasrudin",
+            "author": "idries shah",
+            "similarity": 0.0
+          },
+          {
+            "title": "around the world in eighty days tor classics",
+            "author": "jules verne",
+            "similarity": 0.0
+          },
+          {
+            "title": "chasing redbird",
+            "author": "sharon creech",
+            "similarity": 0.0
+          }
+        ]
+      },
+      {
+        "book": "the kitchen gods wife",
+        "recommendations": [
+          {
+            "title": "the kitchen gods wife vintage contemporaries",
+            "author": "amy tan",
+            "similarity": 0.8486539998918488
+          },
+          {
+            "title": "the joy luck club",
+            "author": "amy tan",
+            "similarity": 0.550054486495648
+          },
+          {
+            "title": "amy and isabelle a novel",
+            "author": "elizabeth strout",
+            "similarity": 0.23544009475644576
+          },
+          {
+            "title": "the pilots wife a novel",
+            "author": "anita shreve",
+            "similarity": 0.22540996005790212
+          },
+          {
+            "title": "gossip times three",
+            "author": "amy goldman koss",
+            "similarity": 0.21844447802841618
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-08-11T11:28:05.724836",
+    "config": {
+      "name": "alternative_model",
+      "bert_model": "paraphrase-MiniLM-L3-v2",
+      "num_keywords": 8,
+      "diversity": 0.6,
+      "tfidf_params": {},
+      "description": "Alternative BERT model"
+    },
+    "metrics": {
+      "top_5_accuracy": 0.536,
+      "top_10_accuracy": 0.42880000000000007,
+      "mean_similarity": 0.0,
+      "keyword_overlap": 0.0,
+      "unique_genres_ratio": 0.0,
+      "unique_authors_ratio": 0.0,
+      "diversity_score": 0.0,
+      "processing_time": 0.0,
+      "memory_usage_mb": 0.0
+    },
+    "sample_recommendations": [
+      {
+        "book": "classical mythology",
+        "recommendations": [
+          {
+            "title": "read this and tell me what it says stories bard book",
+            "author": "a manette ansay",
+            "similarity": 0.0
+          },
+          {
+            "title": "beloved penguin great books of the 20th century",
+            "author": "toni morrison",
+            "similarity": 0.0
+          },
+          {
+            "title": "the exploits of the incomparable mulla nasrudin the subtleties of the inimitable mulla nasrudin",
+            "author": "idries shah",
+            "similarity": 0.0
+          },
+          {
+            "title": "around the world in eighty days tor classics",
+            "author": "jules verne",
+            "similarity": 0.0
+          },
+          {
+            "title": "chasing redbird",
+            "author": "sharon creech",
+            "similarity": 0.0
+          }
+        ]
+      },
+      {
+        "book": "clara callan",
+        "recommendations": [
+          {
+            "title": "the prayer of jabez devotional",
+            "author": "bruce wilkinson",
+            "similarity": 0.17802823575190127
+          },
+          {
+            "title": "the real mother goose",
+            "author": "blanche fisher wright",
+            "similarity": 0.17455959761408316
+          },
+          {
+            "title": "holy fire a novel bantam spectra book",
+            "author": "bruce sterling",
+            "similarity": 0.16723474369096938
+          },
+          {
+            "title": "golf hall of shame12 copy prepak",
+            "author": "bruce nash",
+            "similarity": 0.16216615954687086
+          },
+          {
+            "title": "the civil war american heritage library",
+            "author": "bruce catton",
+            "similarity": 0.16082618249114342
+          }
+        ]
+      },
+      {
+        "book": "flu the story of the great influenza pandemic of 1918 and the search for the virus that caused it",
+        "recommendations": [
+          {
+            "title": "the great petrowski a fable",
+            "author": "gina berriault",
+            "similarity": 0.1922151950171645
+          },
+          {
+            "title": "the man who loved only numbers the story of paul erdos and the search for mathematical truth",
+            "author": "paul hoffman",
+            "similarity": 0.1142916822346349
+          },
+          {
+            "title": "disneys pocahontas illustrated classic",
+            "author": "gina ingoglia",
+            "similarity": 0.10894133008764642
+          },
+          {
+            "title": "son of a preacher man my search for grace in the shadows",
+            "author": "jay bakker",
+            "similarity": 0.10246739515726262
+          },
+          {
+            "title": "jedi search star wars the jedi academy trilogy vol 1",
+            "author": "kevin j anderson",
+            "similarity": 0.09637983449577751
+          }
+        ]
+      },
+      {
+        "book": "the mummies of urumchi",
+        "recommendations": [
+          {
+            "title": "read this and tell me what it says stories bard book",
+            "author": "a manette ansay",
+            "similarity": 0.0
+          },
+          {
+            "title": "beloved penguin great books of the 20th century",
+            "author": "toni morrison",
+            "similarity": 0.0
+          },
+          {
+            "title": "the exploits of the incomparable mulla nasrudin the subtleties of the inimitable mulla nasrudin",
+            "author": "idries shah",
+            "similarity": 0.0
+          },
+          {
+            "title": "around the world in eighty days tor classics",
+            "author": "jules verne",
+            "similarity": 0.0
+          },
+          {
+            "title": "chasing redbird",
+            "author": "sharon creech",
+            "similarity": 0.0
+          }
+        ]
+      },
+      {
+        "book": "the kitchen gods wife",
+        "recommendations": [
+          {
+            "title": "the kitchen gods wife vintage contemporaries",
+            "author": "amy tan",
+            "similarity": 0.8723921141511983
+          },
+          {
+            "title": "the joy luck club",
+            "author": "amy tan",
+            "similarity": 0.552482322441198
+          },
+          {
+            "title": "going to ground simple life on a georgia pond",
+            "author": "amy blackmarr",
+            "similarity": 0.22591978014491185
+          },
+          {
+            "title": "amy and isabelle a novel",
+            "author": "elizabeth strout",
+            "similarity": 0.22378843791747707
+          },
+          {
+            "title": "gossip times three",
+            "author": "amy goldman koss",
+            "similarity": 0.21887636539452987
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2025-08-11T11:41:26.946335",
+    "config": {
+      "name": "custom_tfidf",
+      "bert_model": "all-MiniLM-L6-v2",
+      "num_keywords": 8,
+      "diversity": 0.6,
+      "tfidf_params": {
+        "max_features": 1000,
+        "ngram_range": [
+          1,
+          2
+        ],
+        "min_df": 2
+      },
+      "description": "Custom TF-IDF parameters"
+    },
+    "metrics": {
+      "top_5_accuracy": 0.466,
+      "top_10_accuracy": 0.3728,
+      "mean_similarity": 0.0,
+      "keyword_overlap": 0.0,
+      "unique_genres_ratio": 0.0,
+      "unique_authors_ratio": 0.0,
+      "diversity_score": 0.0,
+      "processing_time": 0.0,
+      "memory_usage_mb": 0.0
+    },
+    "sample_recommendations": [
+      {
+        "book": "classical mythology",
+        "recommendations": [
+          {
+            "title": "read this and tell me what it says stories bard book",
+            "author": "a manette ansay",
+            "similarity": 0.0
+          },
+          {
+            "title": "beloved penguin great books of the 20th century",
+            "author": "toni morrison",
+            "similarity": 0.0
+          },
+          {
+            "title": "the exploits of the incomparable mulla nasrudin the subtleties of the inimitable mulla nasrudin",
+            "author": "idries shah",
+            "similarity": 0.0
+          },
+          {
+            "title": "around the world in eighty days tor classics",
+            "author": "jules verne",
+            "similarity": 0.0
+          },
+          {
+            "title": "chasing redbird",
+            "author": "sharon creech",
+            "similarity": 0.0
+          }
+        ]
+      },
+      {
+        "book": "clara callan",
+        "recommendations": [
+          {
+            "title": "the prayer of jabez devotional",
+            "author": "bruce wilkinson",
+            "similarity": 0.5841004692426012
+          },
+          {
+            "title": "the prayer of jabez breaking through to the blessed life",
+            "author": "bruce wilkinson",
+            "similarity": 0.47730745216804943
+          },
+          {
+            "title": "nessie the loch ness monster",
+            "author": "richard brassey",
+            "similarity": 0.4764907667210459
+          },
+          {
+            "title": "amsterdam amsterdam and the hague art in focus",
+            "author": "christopher wright",
+            "similarity": 0.43132498787077106
+          },
+          {
+            "title": "rogue warrior rogue warrior i paperback",
+            "author": "richard marcinko",
+            "similarity": 0.4239703463322418
+          }
+        ]
+      },
+      {
+        "book": "flu the story of the great influenza pandemic of 1918 and the search for the virus that caused it",
+        "recommendations": [
+          {
+            "title": "remember me a search for refuge in wartime britain",
+            "author": "irene n watts",
+            "similarity": 0.7563888540527883
+          },
+          {
+            "title": "cosmic wormholes the search for interstellar shortcuts",
+            "author": "paul halpern",
+            "similarity": 0.6870443079140356
+          },
+          {
+            "title": "my goodness a cynics shortlived search for sainthood",
+            "author": "joe queenan",
+            "similarity": 0.6684015278593524
+          },
+          {
+            "title": "when the sky fell in search of atlantis",
+            "author": "rand flem ath",
+            "similarity": 0.6615307840626969
+          },
+          {
+            "title": "the secret of shambhala in search of the eleventh insight",
+            "author": "james redfield",
+            "similarity": 0.6488277177649046
+          }
+        ]
+      },
+      {
+        "book": "the mummies of urumchi",
+        "recommendations": [
+          {
+            "title": "read this and tell me what it says stories bard book",
+            "author": "a manette ansay",
+            "similarity": 0.0
+          },
+          {
+            "title": "beloved penguin great books of the 20th century",
+            "author": "toni morrison",
+            "similarity": 0.0
+          },
+          {
+            "title": "the exploits of the incomparable mulla nasrudin the subtleties of the inimitable mulla nasrudin",
+            "author": "idries shah",
+            "similarity": 0.0
+          },
+          {
+            "title": "around the world in eighty days tor classics",
+            "author": "jules verne",
+            "similarity": 0.0
+          },
+          {
+            "title": "chasing redbird",
+            "author": "sharon creech",
+            "similarity": 0.0
+          }
+        ]
+      },
+      {
+        "book": "the kitchen gods wife",
+        "recommendations": [
+          {
+            "title": "the kitchen gods wife vintage contemporaries",
+            "author": "amy tan",
+            "similarity": 0.7459990576376179
+          },
+          {
+            "title": "the seals surprise baby",
+            "author": "amy j fetzer",
+            "similarity": 0.5452389998430461
+          },
+          {
+            "title": "the joy luck club",
+            "author": "amy tan",
+            "similarity": 0.4936771681130174
+          },
+          {
+            "title": "gossip times three",
+            "author": "amy goldman koss",
+            "similarity": 0.43261676265160426
+          },
+          {
+            "title": "chariots of the gods unsolved mysteries of the past",
+            "author": "erich von daniken",
+            "similarity": 0.41750850805742784
+          }
+        ]
+      }
+    ]
+  }
+]
