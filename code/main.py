@@ -31,11 +31,11 @@ os.makedirs(MODELS_PATH, exist_ok=True)
 
 
 
-def run_preprocessing_pipeline(max_rows=10000):
+def run_preprocessing_pipeline(max_rows=None):
     """Run the complete data preprocessing pipeline."""
     print("\n[STEP 1] Loading and preprocessing datasets...")
     
-    # Load raw data with row limit
+    # Load raw data (all rows if max_rows is None)
     books, users, ratings = load_datasets(max_rows=max_rows)
     
     # Clean datasets
@@ -162,47 +162,7 @@ def is_good_recommendation(source_book, recommended_book):
     
     return score >= 0.3  # Lower overall threshold
 
-def compute_metrics_with_cv(df: pd.DataFrame, similarity_matrix: np.ndarray, n_folds: int = 5) -> ExperimentMetrics:
-    """Compute metrics using k-folds cross validation."""
-    metrics = ExperimentMetrics()
-    kf = KFold(n_splits=n_folds, shuffle=True, random_state=42)
-    
-    fold_accuracies = []
-    
-    for fold, (train_idx, test_idx) in enumerate(kf.split(df)):
-        fold_accuracy = 0
-        valid_test_samples = 0
-        
-        for test_idx in test_idx[:20]:  # Limit to 20 samples per fold for efficiency
-            try:
-                # Get recommendations for this test book
-                sim_scores = similarity_matrix[test_idx]
-                top_indices = np.argsort(sim_scores)[-11:][::-1][1:]  # Exclude self
-                
-                source_book = df.iloc[test_idx]
-                correct_recommendations = 0
-                
-                # Check top 5 recommendations
-                for rec_idx in top_indices[:5]:
-                    recommended_book = df.iloc[rec_idx]
-                    if is_good_recommendation(source_book, recommended_book):
-                        correct_recommendations += 1
-                
-                fold_accuracy += correct_recommendations / 5
-                valid_test_samples += 1
-                
-            except Exception as e:
-                continue
-        
-        if valid_test_samples > 0:
-            fold_accuracies.append(fold_accuracy / valid_test_samples)
-    
-    # Average across folds
-    if fold_accuracies:
-        metrics.top_5_accuracy = np.mean(fold_accuracies)
-        metrics.top_10_accuracy = metrics.top_5_accuracy * 0.8  # Estimate
-    
-    return metrics
+# This function is now handled by ExperimentTracker in src/experiment_tracking.py
 
 # # Update the ExperimentTracker class
 # class ExperimentTracker:
@@ -262,8 +222,8 @@ def run_experiments():
 # Update the main execution to include experiments
 if __name__ == "__main__":
     try:
-        # Run complete pipeline
-        books_clean, users_clean, explicit_matrix = run_preprocessing_pipeline()
+        # Run complete pipeline with all data
+        books_clean, users_clean, explicit_matrix = run_preprocessing_pipeline(max_rows=None)
         run_model_pipeline()
         run_experiments()  # Add this line
         run_example_recommendations()
