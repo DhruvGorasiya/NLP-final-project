@@ -6,4 +6,8 @@ matplotlib
 seaborn
 nltk
 plotly
-kaleido  # For static image export with plotly
+kaleido
+langdetect
+sentence-transformers
+torch
+tqdm
